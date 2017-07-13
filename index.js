@@ -34,7 +34,7 @@ app.get('/profile/:usuario/list', usuarioController.listarespecifico); //ESTÁ F
 app.put('/profile/:usuario/edit', usuarioController.editar); //PRECISA DE AJUSTE!!
 
 // Endpoints post generico
-app.post('/profile/:usuario/newpost', postController.criarpost); //ESTÁ FUNCIONANDO!!
+app.post('/profile/:usuario/registerp2', postController.criarpost); //ESTÁ FUNCIONANDO!!
 app.get('/home', postController.listar); //ESTÁ FUNCIONANDO!!
 app.get('/search/:query', postController.filtrar); //ESTÁ FUNCIONANDO!!
 app.get('/profile/:usuario', postController.filtraremusuario); //ESTÁ FUNCIONANDO!!

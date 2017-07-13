@@ -9,7 +9,7 @@ exports.criarusuario = function (req, res) {
       return res.sendStatus(503);
     }
 
-    return res.send(result);
+    return res.send(req.body);
   });
 
 }
