@@ -2,35 +2,27 @@ var ObjectID = require('mongodb').ObjectID;
 
 //Função que cria um novo usuário - ESTÁ FUNCIONANDO!!
 exports.criarusuario = function (req, res) {
-
-  var usuario = {
-    username: req.body.username,
-    password: req.body.password
-  };
+  usuario = req.body
 
   req.db.collection('usuario').save(usuario, function(err, result) {
     if (err) {
       return res.sendStatus(503);
     }
 
-    return res.sendStatus(201);
+    return res.send(result);
   });
 
 }
 
 //Função que confere usuário + senha - PRECISA DE AJUSTE
 exports.validar = function (req, res) {
-  var usuario = {
-    username: req.body.username,
-    password: req.body.password
-  };
+  var usuario = req.body;
 
   req.db.collection('usuario').find(usuario, function(err, result) {
-
-    if (err || result == false) {
+    if (err) {
       return res.sendStatus(401);
       }
-      res.sendStatus(201);
+      res.send(result);
     });
   };
 
