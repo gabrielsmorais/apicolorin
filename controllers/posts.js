@@ -2,15 +2,13 @@ var ObjectID = require('mongodb').ObjectID;
 
 //Função que cria um item - ESTÁ FUNCIONANDO!!
 exports.criarpost = function (req, res) {
-  var username = req.params.usuario
-  var post = req.body
-  post.username = username
+  var data = req.body;
 
-  req.db.collection('post').save(post, function(err, result) {
+  req.db.collection("post").save(data, function(err, result) {
       if (err) {
           return res.sendStatus(503);
       }
-      res.sendStatus(201);
+      return res.send(data);
     });
   };
 
@@ -45,24 +43,24 @@ exports.filtraremusuario = function (req, res) {
 
   req.db.collection('post').find({username: usuario}).toArray(function(err, result) {
       if (err) {
-          return res.sendStatus(503);
-      };
+        return res.sendStatus(503);
+};
 
-      res.send(result);
-  });
+res.send(result);
+});
 };
 
 /*Função que edita um item do usuario que está logado [DUVIDA]
 exports.editar = function (req, res) {
-  var usuario = {
-    username: [ ],
-    password: [ ],
-  };
+var usuario = {
+username: [ ],
+password: [ ],
+};
 
-  req.db.collection('usuario').find(usuario, function(err, result) {
+req.db.collection('usuario').find(usuario, function(err, result) {
 
-    if (err || result == false) {
-      return res.sendStatus(401);
-      }
-  });
+if (err || result == false) {
+return res.sendStatus(401);
+}
+});
 */

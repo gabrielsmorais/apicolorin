@@ -22,7 +22,7 @@ app.use(expressMongoDb('mongodb://localhost:27017/colorin'));
 
  // inicializa o servidor na porta especificada
 app.listen(3000, function() {
-  console.log('Acesse o servidor http://localhost:3000');
+  console.log('Acesse o servidor http://104.131.166.166:3000');
 });
 
 // Endpoints usuario generico - no usuarios.js
@@ -34,10 +34,10 @@ app.get('/profile/:usuario/list', usuarioController.listarespecifico); //ESTÁ F
 app.put('/profile/:usuario/edit', usuarioController.editar); //PRECISA DE AJUSTE!!
 
 // Endpoints post generico
-app.post('/profile/:usuario/registerp2', postController.criarpost); //ESTÁ FUNCIONANDO!!
+app.post('/:usuario/registerp2', postController.criarpost); //ESTÁ FUNCIONANDO!!
 app.get('/home', postController.listar); //ESTÁ FUNCIONANDO!!
 app.get('/search/:query', postController.filtrar); //ESTÁ FUNCIONANDO!!
 app.get('/profile/:usuario', postController.filtraremusuario); //ESTÁ FUNCIONANDO!!
 
 // Endpoints post especifico
-//app.put('/item/:id', postController.editar);// [DÚVIDA]
+//app.put('/item/:id', postController.editar); [DÚVIDA]

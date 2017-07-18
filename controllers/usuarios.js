@@ -18,10 +18,11 @@ exports.criarusuario = function (req, res) {
 exports.validar = function (req, res) {
   var usuario = req.body;
 
-  req.db.collection('usuario').find(usuario, function(err, result) {
+  req.db.collection('usuario').findOne({"username": usuario.username, "password": usuario.password}, function(err, result) {
     if (err) {
       return res.sendStatus(401);
       }
+        console.log(result);
       res.send(result);
     });
   };
@@ -42,8 +43,7 @@ exports.listarespecifico = function(req, res) {
 //Função que edita um usuário que está logado - PRECISA DE AJUSTE
 exports.editar = function (req, res) {
   var user = req.params.usuario;
-
-req.db.collection('usuario').update({username: user}, {$set: req.body}, function(err, result) {
+  req.db.collection('usuario').update({username: user}, {$set: req.body}, function(err, result) {
   if (err) {
     return res.sendStatus(503);
   }
