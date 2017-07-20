@@ -25,9 +25,10 @@ exports.listar = function (req, res) {
 
 //Função que realiza uma listagem filtrada de itens - ESTÁ FUNCIONANDO!!
 exports.filtrar = function (req, res) {
-  var busca = req.params.query
+  var busca = req.params.query;
+  console.log(busca);
 
-  req.db.collection('post').find({title: busca}).toArray(function(err, result) {
+  req.db.collection('post').findOne({artName: busca}).toArray(function(err, result) {
       if (err) {
           return res.sendStatus(503);
       };
