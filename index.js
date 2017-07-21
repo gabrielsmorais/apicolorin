@@ -36,6 +36,7 @@ app.put('/profile/:usuario/edit', usuarioController.editar); // NÃO FUNCIONA NO
 // Endpoints post generico
 app.post('/:usuario/registerp2', postController.criarpost); // TESTAR / LEANDRO
 app.get('/home', postController.listar); // FUNCIONA NO BACK / FUNCIONA NO FRONT - ARRUMAR DESTINAÇÃO DE FOTO
+app.get('/search', postController.listar); // FUNCIONA NO BACK / FUNCIONA NO FRONT - ARRUMAR DESTINAÇÃO DE FOTO
 app.get('/search/:query', postController.filtrar); // TESTAR / ??
 app.get('/profile/:usuario', postController.filtraremusuario); // TESTAR / GEORGETE
 
